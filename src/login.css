@@ -1,0 +1,241 @@
+.authbox {
+  width: 700px;
+  overflow: "hidden";
+  margin: 80px auto 30px;
+}
+
+.leftBox {
+  width: 300px;
+  height: 480px;
+  float: left;
+  position: relative;
+  display: block;
+}
+
+.bgGreen {
+  width: 100%;
+  height: 100%;
+  background-color: #1c8ef9;
+  border-top-left-radius: 90px;
+}
+
+.imageAuth {
+  background-image: url("/public/logos/logo.jpeg");
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 90px;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.imageText {
+  font-size: 28px;
+  position: absolute;
+  color: #ffffff;
+}
+
+.imageText.bold {
+  font-weight: bold;
+}
+.imageText.style1 {
+  top: 200px;
+  left: 20px;
+}
+.imageText.style2 {
+  top: 250px;
+  left: 20px;
+}
+
+.rightBox {
+  width: 398px;
+  height: 478px;
+  float: right;
+  border: 1px solid #1c8ef9;
+}
+.box {
+  width: 310px;
+  height: 415px;
+  margin: 32px auto;
+}
+
+.titleAuth {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #1c8ef9;
+}
+
+.titleSignUp {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1c8ef9;
+}
+
+.inputSBox {
+  width: 300px;
+  height: 42px;
+  border-bottom: 2px solid #1c8ef9;
+  margin-bottom: 10px;
+}
+
+.inputS {
+  width: 100%;
+  height: 98%;
+  font-size: 14px;
+  color: #37353f;
+  text-indent: 10px;
+  border: 0;
+  outline: none;
+}
+
+.contentBox {
+  overflow: hidden;
+  height: 42px;
+  margin-bottom: 30px;
+}
+
+.checkboxBox {
+  overflow: hidden;
+  float: left;
+}
+
+.text1 {
+  float: right;
+  font-size: 14px;
+  color: #006cbc;
+  cursor: pointer;
+}
+
+.SignUp {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.SignUp.text {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.SignIn {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.SignIn.text {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.checkbox {
+  float: left;
+}
+
+.checkboxLabel {
+  float: left;
+  font-size: 14px;
+  margin-left: 5px;
+  color: #37353f;
+}
+
+.btnAuth {
+  width: 300px;
+  height: 47px;
+  color: #ffffff;
+  background-color: #1c8ef9;
+  text-align: center;
+  line-height: 47px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.borderBox {
+  width: 300px;
+  height: 47px;
+  position: relative;
+  margin: 0 0;
+}
+
+.line {
+  border-bottom: 2px solid #d8d8d8;
+  position: absolute;
+  top: 22px;
+  width: 300px;
+}
+.text2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #818487;
+}
+
+.text2.or {
+  position: relative;
+  top: 14px;
+  left: 140px;
+  width: 25px;
+  height: 16px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.SignUpauthbox {
+  width: 700px;
+  overflow: "hidden";
+  margin: 5px auto 10px;
+}
+
+.SignUpleftBox {
+  width: 300px;
+  height: 580px;
+  float: left;
+  position: relative;
+  display: block;
+}
+
+.SignUpbgGreen {
+  width: 100%;
+  height: 100%;
+  background-color: #1c8ef9;
+  border-top-left-radius: 90px;
+}
+
+.SignUprightBox {
+  width: 398px;
+  height: 578px;
+  float: right;
+  border: 1px solid #1c8ef9;
+}
+
+@media screen and (max-width: 768px) {
+  .authbox {
+    width: 100%;
+  }
+  .leftBox {
+    display: none;
+  }
+  .rightBox {
+    width: 100%;
+    float: initial;
+    border: 0;
+  }
+  .SignUpauthbox {
+    width: 100%;
+  }
+  .SignUpleftBox {
+    display: none;
+  }
+  .SignUprightBox {
+    width: 100%;
+    float: initial;
+    border: 0;
+  }
+}
