@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 .sass-cache
@@ -25,4 +26,33 @@ yarn-debug.log*
 yarn-error.log*
 
 layout.css
+=======
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+.sass-cache
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+/idea
+/.idea
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+layout.css
+>>>>>>> 2ef0ab17e6b139a11af7777026ab7f2ad5463bc7
 pages.css
