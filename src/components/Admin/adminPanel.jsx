@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import classNames from "classnames";
 import { AppTopbar } from "../common/AppTopbar";
 import { AppFooter } from "../common/AppFooter";
@@ -35,6 +35,7 @@ import "../../layout/layout.scss";
 import authService from "../../service/authService";
 import * as userService from "../../service/userService";
 import CalenderProfile from "../common/calenderProfile";
+import PageNotFound from "../common/pageNotFound";
 
 class AdminPanel extends Component {
   constructor() {
@@ -350,6 +351,8 @@ class AdminPanel extends Component {
             <Route path="/viewAnounements" component={ViewAnouncements} />
             <Route path="/viewReports" component={Reports} />
             <Route path="/" exact component={Dashboard} />
+            <Route path="/pageNotFound" component={PageNotFound}/>
+            <Redirect to="/pageNotFound" />
           </Switch>
         </div>
 

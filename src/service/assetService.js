@@ -39,6 +39,10 @@ export async function getInUsedAssetCount() {
   return await http.get(apiEndpoint + "/user/assets/inUsedAssets/count");
 }
 
+export async function getAssetsReport(month) {
+  return await http.get(apiEndpoint + "/admin/requests/requestsReport/"+month);
+}
+
 export async function returnAsset(id) {
   console.log("Retuen Asset Service", id);
   return await http.get(apiEndpoint + "/user/assets/inUsedAssets/return/" + id);

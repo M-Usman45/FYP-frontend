@@ -88,7 +88,7 @@ class viewAssets extends Component {
                 >
                   <Column header="Image" body={(rowData , column)=>{
                      return <img 
-                       style={{height: "100px" , width:"100px"}}  
+                       style={{height: "100px" , width:"100px" , borderRadius:"15ch"}}  
                        src={"http://localhost:4000/public/uploads/"+rowData.image} 
                        alt = "image not fount"/>
                   }} />

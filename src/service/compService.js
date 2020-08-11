@@ -16,6 +16,10 @@ export async function editComplain(comp_id, title, description) {
   });
 }
 
+export async function getCompsReport(month) {
+  return await http.get(apiEndpoint + "/admin/complains/complainsReport/"+month);
+}
+
 export async function viewComplains() {
   return await http.get(apiEndpoint + "/admin/complains/view");
 }

@@ -4,7 +4,7 @@ import { AppTopbar } from "../common/AppTopbar";
 import { AppFooter } from "../common/AppFooter";
 import { AppMenu } from "../common/AppMenu";
 import { AppProfile } from "../common/AppProfile";
-import { Route } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { Dashboard } from "./Dashboard";
 import { SendComplain } from "./sendComplain";
 import OrganizationAssets from "./organizationAssets";
@@ -12,6 +12,7 @@ import SendRequest from "./sendRequest";
 import InUsedAssets from "./inUsedAssets";
 import UserRequests from "./userRequests";
 import ViewProfile from "../common/viewProfile";
+import PageNotFound from "../common/pageNotFound";
 import UserComplains from "./userComplains";
 import EditRequest from "./editRequest";
 import EditComplain from "./editComplain";
@@ -251,7 +252,15 @@ class UserPanel extends Component {
         </div>
 
         <div className="layout-main">
-          <Route path="/" exact component={Dashboard} />
+         <Route path="/" exact component={Dashboard} />
+         <Route
+            path="/editRequest"
+            render={(props) => <EditRequest {...props} />}
+          />
+          <Route
+            path="/editComplain"
+            render={(props) => <EditComplain {...props} />}
+          />
           <Route path="/organizationAssets" component={OrganizationAssets} />
           <Route path="/sendComplain" component={SendComplain} />
           <Route path="/sendRequest" component={SendRequest} />
@@ -260,14 +269,9 @@ class UserPanel extends Component {
           <Route path="/userRequests" component={UserRequests} />
           <Route path="/viewProfileOfUser" component={ViewProfile} />
           <Route path="/calender" component={CalenderProfile} />
-          <Route
-            path="/editRequest"
-            render={(props) => <EditRequest {...props} />}
-          />
-          <Route
-            path="/editComplain"
-            render={(props) => <EditComplain {...props} />}
-          />
+          <Route path="/pageNotFound" component={PageNotFound}/>
+          <Redirect to="/pageNotFound" />
+ 
         </div>
 
         <AppFooter />

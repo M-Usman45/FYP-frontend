@@ -48,7 +48,7 @@ export async function getInfo(req_id) {
 }
 
 export async function viewRequests() {
-  return await http.get(apiEndpoint + "/admin/requests/view");
+  return await http.get(apiEndpoint + "/admin/requests/view",);
 }
 export async function getUserRequests() {
   return await http.get(apiEndpoint + "/user/requests/userRequests");
@@ -65,6 +65,11 @@ export async function getPendingReq() {
 export async function getUserReqCount() {
   return await http.get(apiEndpoint + "/user/requests/requestsCount");
 }
+
+export async function getReqsReport(month) {
+  return await http.get(apiEndpoint + "/admin/requests/requestsReport/"+month);
+}
+
 
 export async function UpdateStatus(req_id, req_status) {
   console.log("In Request Service", req_status);
