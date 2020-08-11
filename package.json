@@ -1,5 +1,6 @@
+
 {
-  "name": "My-Asset",
+  "name": "my-asset",
   "version": "3.0.1-SNAPSHOT",
   "homepage": "/MyAsset",
   "private": false,
