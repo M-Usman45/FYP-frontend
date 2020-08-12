@@ -33,7 +33,7 @@ export class Dashboard extends Component {
     reqService
       .getReqCount()
       .then((result) => {
-        this.setState({ requests: result.data });
+        this.setState({ requests: parseInt(result.data) });
       })
       .catch((error) => {
         this.setState({ error: error });
@@ -41,7 +41,7 @@ export class Dashboard extends Component {
     compService
       .getCompCount()
       .then((result) => {
-        this.setState({ complains: result.data });
+        this.setState({ complains: parseInt( result.data ) });
       })
       .catch((error) => {
         this.setState({ error: error });
@@ -49,7 +49,7 @@ export class Dashboard extends Component {
     adminService
       .getAdminCount()
       .then((result) => {
-        this.setState({ admins: result.data });
+        this.setState({ admins: parseInt( result.data ) });
       })
       .catch((error) => {
         this.setState({ error: error });
@@ -57,7 +57,7 @@ export class Dashboard extends Component {
     userService
       .getUserCount()
       .then((result) => {
-        this.setState({ users: result.data });
+        this.setState({ users: parseInt( result.data ) });
       })
       .catch((error) => {
         this.setState({ error: error });
@@ -65,7 +65,7 @@ export class Dashboard extends Component {
     assetService
       .getAssetCount()
       .then((result) => {
-        this.setState({ assets: result.data });
+        this.setState({ assets: parseInt( result.data ) });
       })
       .catch((error) => {
         this.setState({ error: error });
@@ -73,7 +73,7 @@ export class Dashboard extends Component {
     anounceService
       .getAnounceCount()
       .then((result) => {
-        this.setState({ anouncements: result.data });
+        this.setState({ anouncements: parseInt( result.data ) });
       })
       .catch((err) => {
         console.log(err);
@@ -101,7 +101,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number of Users</span>
             <span className="count visitors">
-              {!users && (
+              {users >= 0 ? users : (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -109,7 +109,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {users}
             </span>
           </div>
         </div>
@@ -122,7 +121,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number of Assets</span>
             <span className="count revenue">
-              {!assets && (
+              {assets >= 0 ? assets : (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -130,7 +129,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {assets}
             </span>
           </div>
         </div>
@@ -143,7 +141,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number of Admins</span>
             <span className="count purchases">
-              {!admins && (
+              {admins >= 0 ? admins : (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -151,7 +149,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {admins}
             </span>
           </div>
         </div>
@@ -165,7 +162,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number of Requests</span>
             <span className="count revenue">
-              {!requests && (
+              {requests >= 0 ? requests :  (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -173,7 +170,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {requests}
             </span>
           </div>
         </div>
@@ -186,7 +182,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number of Complains</span>
             <span className="count revenue">
-              {!complains && (
+              {complains >= 0 ? complains : (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -194,7 +190,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {complains}
             </span>
           </div>
         </div>
@@ -208,7 +203,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number of Anouncements</span>
             <span className="count revenue">
-              {!anouncements && (
+              {anouncements >= 0 ? anouncements : (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -216,7 +211,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {anouncements}
             </span>
           </div>
         </div>
@@ -226,9 +220,7 @@ export class Dashboard extends Component {
           </Panel>
         </div>
         <div className="p-col-12 p-lg-12">
-          
             <CalenderProfile />
-          
         </div>
       </div>
     );

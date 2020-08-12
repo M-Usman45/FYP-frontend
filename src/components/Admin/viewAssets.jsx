@@ -87,9 +87,10 @@ class viewAssets extends Component {
                   responsive={true}
                 >
                   <Column header="Image" body={(rowData , column)=>{
+                    const imageName = rowData.image
                      return <img 
                        style={{height: "100px" , width:"100px" , borderRadius:"15ch"}}  
-                       src={"http://localhost:4000/public/uploads/"+rowData.image} 
+                       src={"http://localhost:4000/public/uploads/"+imageName} 
                        alt = "image not fount"/>
                   }} />
                   <Column field="title" header="Title" filter={true} />

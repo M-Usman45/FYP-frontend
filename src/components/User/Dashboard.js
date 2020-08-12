@@ -27,7 +27,7 @@ export class Dashboard extends Component {
     reqService
       .getUserReqCount()
       .then((result) => {
-        this.setState({ requests: result.data });
+        this.setState({ requests: parseInt( result.data ) });
       })
       .catch((error) => {
         this.setState({ error: error });
@@ -35,7 +35,7 @@ export class Dashboard extends Component {
     compService
       .getUserCompCount()
       .then((result) => {
-        this.setState({ complains: result.data });
+        this.setState({ complains: parseInt( result.data ) });
       })
       .catch((error) => {
         this.setState({ error: error });
@@ -43,7 +43,7 @@ export class Dashboard extends Component {
     assetService
       .getInUsedAssetCount()
       .then((result) => {
-        this.setState({ assets: result.data });
+        this.setState({ assets: parseInt( result.data ) });
       })
       .catch((error) => {
         this.setState({ error: error });
@@ -61,7 +61,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number of Sended Requests</span>
             <span className="count visitors">
-              {!requests && (
+              {requests >=0 ? requests : (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -69,7 +69,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {requests}
             </span>
           </div>
         </div>
@@ -80,7 +79,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number of sended Complains</span>
             <span className="count purchases">
-              {!complains && (
+              {complains >= 0 ? complains : (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -88,7 +87,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {complains}
             </span>
           </div>
         </div>
@@ -99,7 +97,7 @@ export class Dashboard extends Component {
             </a>
             <span className="detail">Number In Used Assets</span>
             <span className="count revenue">
-              {!assets && (
+              {assets >= 0 ? assets : (
                 <ProgressSpinner
                   style={{ width: "20px", height: "20px" }}
                   strokeWidth="8"
@@ -107,7 +105,6 @@ export class Dashboard extends Component {
                   animationDuration=".5s"
                 />
               )}
-              {this.state.assets}
             </span>
           </div>
         </div>

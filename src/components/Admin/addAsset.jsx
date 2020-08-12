@@ -124,9 +124,9 @@ export class AddAsset extends Component {
       });
   }  
   imageUploadHandler=(event)=>{
-    const {data , assetImage} = this.state;
+    const {data } = this.state;
     this.setState({assetImage: event.xhr.response})
-    data["image"] = event.xhr.response; 
+    data["assetImage"] = event.xhr.response; 
       this.setState({data})
   }
   renderCategoryDailog = ()=>{
@@ -158,7 +158,7 @@ export class AddAsset extends Component {
         <div className="p-grid">
           <div className="p-col-12 p-md-8" >
             <div className="p-grid" >
-              <div className="p-col-12 p-md-2">
+              <div className="p-sm-12 p-md-3">
                 <label htmlFor="title">Asset Title</label>
               </div>
             </div>
@@ -173,7 +173,7 @@ export class AddAsset extends Component {
               </div>
             </div>
             <div className="p-grid" >  
-                   <div className="p-col-12 p-md-2">
+                   <div className="p-sm-12 p-md-3">
                       <label htmlFor="image">Image</label>
                    </div>
                 </div>
@@ -193,13 +193,16 @@ export class AddAsset extends Component {
                        </span>
                        )}
                    </div>
+                   {this.state.assetImage && (
+                  <div className="p-col-12 p-md-8" style={{textAlign:"center"}}>
+                    <img style={{maxHeight: '400px', width:'100%'}}
+                    src={"http://localhost:4000/public/uploads/"+ this.state.assetImage}
+                    alt={"Image not found"}/>
+                  </div>
+                )} 
                 </div>
-                {this.state.assetImage && (
-                  <img 
-                    src={"http://localhost:4000/public/uploads/"+ this.state.assetImage}/>
-                )}
             <div className="p-grid">
-              <div className="p-col-12 p-md-2">
+              <div className="p-sm-12 p-md-3">
                 <label htmlFor="brand">Asset Brand</label>
               </div>
             </div>
@@ -214,7 +217,7 @@ export class AddAsset extends Component {
               </div>
             </div>
             <div className="p-grid">
-              <div className="p-col-12 p-md-2">
+              <div className="p-sm-12 p-md-3">
                 <label htmlFor="assetTitle">Asset Category</label>
               </div>
             </div>
@@ -248,7 +251,7 @@ export class AddAsset extends Component {
 
               </div>
             <div className="p-grid">
-              <div className="p-col-12 p-md-2">
+              <div className="p-sm-12 p-md-3">
                 <label htmlFor="price">Price</label>
               </div>
             </div>
@@ -263,7 +266,7 @@ export class AddAsset extends Component {
               </div>
             </div>
             <div className="p-grid">
-              <div className="p-col-12 p-md-2">
+              <div className="p-sm-12 p-md-3">
                 <label htmlFor="spinner">Quantity</label>
               </div>
             </div>
@@ -282,7 +285,7 @@ export class AddAsset extends Component {
               </div>
             </div>
             <div className="p-grid">
-             <div className="p-col-12 p-md-2">
+             <div className="p-sm-12 p-md-3">
                 <label htmlFor="calendar">Purchase Date</label>
               </div> 
             </div>
@@ -318,14 +321,12 @@ export class AddAsset extends Component {
               <div className="p-col-12 p-md-8">
                 <Button label="Add" onClick={this.onSubmit} />
               </div>
-            </div>
-            <div className="p-grid" >
-              <div className="p-col-12 p-md-8">
+            </div>     
+          </div>
+          <div className='p-col-12 p-md-4'>
                 <Button 
                   label="Add Category" 
                   onClick={this.renderCategoryDailog} />                
-              </div>
-            </div>     
           </div>
         </div>
      </div>

@@ -276,11 +276,6 @@ class AdminPanel extends Component {
   render() {
     const { admin } = this.state;
     let username = admin.firstname + " " + admin.lastname;
-    // const logo =
-    //   this.state.layoutColorMode === "dark"
-    //     ? "assets/layout/images/logo-white.svg"
-    //     : "assets/layout/images/logo.svg";
-
     const wrapperClass = classNames("layout-wrapper", {
       "layout-overlay": this.state.layoutMode === "overlay",
       "layout-static": this.state.layoutMode === "static",
@@ -304,16 +299,7 @@ class AdminPanel extends Component {
           className={sidebarClassName}
           onClick={this.onSidebarClick}
         >
-          {/* <div className="layout-logo">
-            <img
-              src="logos/logo.jpeg"
-              alt="Logo Not Found"
-              style={{ height: "100px", width: "100px" }}
-            />
-          </div> */}
-          {/* <div className="layout-profile"> */}
           <AppProfile username={username} />
-          {/* </div> */}
           <AppMenu model={this.menu} onMenuItemClick={this.onMenuItemClick} />
         </div>
 

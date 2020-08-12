@@ -40,7 +40,7 @@ export async function getInUsedAssetCount() {
 }
 
 export async function getAssetsReport(month) {
-  return await http.get(apiEndpoint + "/admin/requests/requestsReport/"+month);
+  return await http.get(apiEndpoint + "/admin/assets/assetsReport/"+month);
 }
 
 export async function returnAsset(id) {

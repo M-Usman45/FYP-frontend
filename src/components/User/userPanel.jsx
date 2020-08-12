@@ -252,6 +252,7 @@ class UserPanel extends Component {
         </div>
 
         <div className="layout-main">
+          <Switch>
          <Route path="/" exact component={Dashboard} />
          <Route
             path="/editRequest"
@@ -271,7 +272,7 @@ class UserPanel extends Component {
           <Route path="/calender" component={CalenderProfile} />
           <Route path="/pageNotFound" component={PageNotFound}/>
           <Redirect to="/pageNotFound" />
- 
+        </Switch>
         </div>
 
         <AppFooter />

@@ -209,8 +209,8 @@ constructor() {
    handleChange= event=>{
       this.setState({ month: event.target.value})
       this.getRequestsReport(event.target.value.month)
-      this.getComplainsReport(event.target.value.month)
-      this.getAssetsReport(event.target.value.month)
+      //this.getComplainsReport(event.target.value.month)
+      // this.getAssetsReport(event.target.value.month)
    }
   
    getRequestsReport=(month)=>{
