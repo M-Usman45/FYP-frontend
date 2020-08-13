@@ -93,8 +93,15 @@ class OrganizationAssets extends Component {
                   rows={10}
                   rowsPerPageOptions={[5, 10, 20]}
                 >
+                  <Column header="Image" body={(rowData , column)=>{
+                    return <img 
+                       style={{height: "50px" , width:"50px" , borderRadius:"15ch", textAlign:"center"}}  
+                       src={"http://localhost:4000/public/uploads/"+rowData.assetImage} 
+                      alt="not found"/>
+                  }} />
                   <Column field="title" header="Title" filter={true} />
                   <Column field="brand" header="Brand" />
+                  <Column field="category" header="Category" /> 
                   <Column
                     header="Available"
                     body={(rowData) => {

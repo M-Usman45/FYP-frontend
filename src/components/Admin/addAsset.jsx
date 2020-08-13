@@ -251,7 +251,7 @@ export class AddAsset extends Component {
               </div>
             <div className="p-grid">
               <div className="p-sm-12 p-md-3">
-                <label htmlFor="price">Price</label>
+                <label htmlFor="price">Unit Price</label>
               </div>
             </div>
             <div className="p-grid">
