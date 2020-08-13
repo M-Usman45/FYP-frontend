@@ -271,7 +271,7 @@ export class ViewProfile extends Component {
                         </div>
                       </div>
                       <div className="p-grid">
-                        <div className="p-col-4">
+                        {/* <div className="p-col-4">
                           <Button
                             label="Edit Profile"
                             icon="pi pi-pencil"
@@ -284,7 +284,7 @@ export class ViewProfile extends Component {
                             icon="pi pi-pencil"
                             onClick={this.passwordDialog}
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
