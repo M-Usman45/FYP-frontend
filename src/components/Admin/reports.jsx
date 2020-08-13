@@ -1,6 +1,5 @@
 import React, {Component} from'react';
 import moment from "moment"
-import {Chart} from'primereact/chart';
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { ProgressSpinner } from "primereact/progressspinner";
@@ -170,10 +169,9 @@ constructor() {
         rowsPerPageOptions={[5, 10, 20]}
         responsive={true} >
         <Column header="Image" body={(rowData , column)=>{
-           return <img 
-              style={{height: "50px" , width:"50px" , borderRadius:"15ch"}}  
-              src={"http://localhost:4000/public/uploads/"+rowData.image} 
-              alt = "image not fount"/>  }} />
+           return <img style={{height: "50px" , width:"50px" , borderRadius:"15ch"}}  
+              src={"http://localhost:4000/public/uploads/"+rowData.assetImage} 
+              alt = ""/>  }} />
         <Column field="title" header="Title"/>
         <Column field="price" header="Price" />
         <Column field="category" header="Category" /> 

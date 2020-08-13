@@ -52,7 +52,7 @@ export class AddAsset extends Component {
     price: Joi.number().required().label("Price"),
     purchaseDate: Joi.date().required().label("Purchase Date"),
     quantity: Joi.number().required().min(1).label("quantity"),
-    image: Joi.string().required().label("Asset Image")
+    assetImage: Joi.string().required().label("Asset Image")
   };
   validateProperty = ({ name, value }) => {
     const obj = { [name]: value };
@@ -101,7 +101,7 @@ export class AddAsset extends Component {
         data.brand,
         data.price,
         data.quantity,
-        data.image,
+        data.assetImage,
         data.purchaseDate,
         data.category
       )
@@ -174,28 +174,28 @@ export class AddAsset extends Component {
             </div>
             <div className="p-grid" >  
                    <div className="p-sm-12 p-md-3">
-                      <label htmlFor="image">Image</label>
+                      <label htmlFor="assetImage">Image</label>
                    </div>
                 </div>
                 <div className="p-grid" >  
                    <div className="p-col-12 p-md-8">
                         <FileUpload   
-                              name="image" 
+                              name="assetImage" 
                               auto={true}
                               onUpload={this.imageUploadHandler}
                               url="http://localhost:4000/api/admin/assets/uploads"
                               mode="basic" 
                               accept="image/*"
                               />
-                   {this.state.error["image"] && (
+                   {this.state.error["assetImage"] && (
                       <span style={{ color: "red" }}>
-                         {this.state.error["image"]}
+                         {this.state.error["assetImage"]}
                        </span>
                        )}
                    </div>
                    {this.state.assetImage && (
                   <div className="p-col-12 p-md-8" style={{textAlign:"center"}}>
-                    <img style={{maxHeight: '400px', width:'100%'}}
+                    <image style={{maxHeight: '400px', width:'100%'}}
                     src={"http://localhost:4000/public/uploads/"+ this.state.assetImage}
                     alt={"Image not found"}/>
                   </div>
@@ -235,7 +235,6 @@ export class AddAsset extends Component {
                       value: event.value.name,
                     };
                     this.setState({ category: event.value});
-                    // console.log("Asset", this.state.asset);
                     const errorMessage = this.validateProperty(obj);
                     if (errorMessage) error["category"] = errorMessage;
                     else delete error["category"];
@@ -294,7 +293,7 @@ export class AddAsset extends Component {
                 <Calendar
                   id="date"
                   showButtonBar={true}
-                  // dateFormat="dd/mm/yy"
+                  dateFormat="dd/mm/yy"
                   showIcon={true}
                   value={this.state.date}
                   onChange={(event) => {
@@ -304,6 +303,7 @@ export class AddAsset extends Component {
                       value: event.value,
                     };
                     this.setState({ date: event.value });
+                    console.log(event.value)
                     const errorMessage = this.validateProperty(obj);
                     if (errorMessage) error["purchaseDate"] = errorMessage;
                     else delete error["purchaseDate"];

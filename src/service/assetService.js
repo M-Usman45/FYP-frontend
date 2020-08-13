@@ -10,7 +10,7 @@ export async function addAssets(title, brand, price, quantity,image, purchase ,c
     quantity: quantity,
     price: price,
     purchaseDate: purchase,
-    image: image, 
+    assetImage: image, 
     category: category 
   });
 }
@@ -67,4 +67,8 @@ export async function assignAsset(title, user_id, issueDate, returnDate, id) {
     returnDate: returnDate,
     Id: id,
   });
+}
+
+export async function editAsset(id , price , quantity , purchaseDate){ 
+  return await http.post(apiEndpoint + "/user/assets/edit/" + id, {  price, quantity, purchaseDate});
 }
