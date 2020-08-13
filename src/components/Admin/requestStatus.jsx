@@ -74,24 +74,23 @@ export class RequestStatus extends Component {
           request._id
         )
         .then((result) => {
-          console.log("Assigned Asset successfully");
-          //          toast.success("Asset Assigned Successfully");
-          //         window.location = "#/viewRequests";
           this.growl.show({
             severity: "success",
-            summary: "Success Message",
-            detail: "Order submitted",
+            summary: "Asset Assigned Successfully",
           });
         })
         .catch((error) => {
-          toast.error("Server Error");
+          this.growl.show({
+            severity: "error",
+            summary: "Asset Assigned Failed",
+            detail: "Server Error"
+          }); 
         });
     }
 
     reqService
       .UpdateStatus(request._id, reqStatus)
       .then((result) => {
-        //toast.success("Request Status Updated Successfully!");
         this.growl.show({
           life: "2000",
           severity: "success",

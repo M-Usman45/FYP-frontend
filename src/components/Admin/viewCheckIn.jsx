@@ -28,11 +28,12 @@ class ViewCheckIn extends Component {
         console.log(result.data);
       })
       .catch((err) => {
-        this.growl.show({
-          life: "3000",
-          severity: "error",
-          summary: "Server error!",
-        });
+        // this.growl.show({
+        //   life: "3000",
+        //   severity: "error",
+        //   summary: "Server error!",
+        // });
+        alert(err)
       });
   }
 
@@ -52,7 +53,7 @@ class ViewCheckIn extends Component {
         severity: "success",
         summary: "Checked Successfully!",
       });
-      this.setState({checkIns : checkIns})
+      this.setState({checkIns : result.data})
     })
     .catch((err)=>{
       this.growl.show({
@@ -77,7 +78,6 @@ class ViewCheckIn extends Component {
     return (
       <React.Fragment>
         <Growl ref={(el) => (this.growl = el)} />
-
         <div style={{ textAlign: "center" }}>
           {!checkIns && (
             <ProgressSpinner

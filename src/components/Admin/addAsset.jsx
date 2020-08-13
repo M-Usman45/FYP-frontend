@@ -195,7 +195,7 @@ export class AddAsset extends Component {
                    </div>
                    {this.state.assetImage && (
                   <div className="p-col-12 p-md-8" style={{textAlign:"center"}}>
-                    <image style={{maxHeight: '400px', width:'100%'}}
+                    <img style={{maxHeight: '400px', width:'100%'}}
                     src={"http://localhost:4000/public/uploads/"+ this.state.assetImage}
                     alt={"Image not found"}/>
                   </div>

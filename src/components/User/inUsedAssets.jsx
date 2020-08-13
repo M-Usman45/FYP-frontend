@@ -3,6 +3,7 @@ import moment from "moment";
 import { Button } from "primereact/button";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { Growl } from "primereact/growl";
 import * as assetService from "../../service/assetService";
 import { ProgressSpinner } from "primereact/progressspinner";
 
@@ -58,8 +59,12 @@ class getInUsedAssets extends Component {
       })
       .catch((err) => {
         this.setState({ assets: orignalassets });
-        alert(err);
-      });
+        this.growl.show({
+          life: "2000",
+          severity: "error",
+          summary: "Returning Asset Failed",
+          detail: "Server Error!",
+        });});
   }
 
   render() {
@@ -74,6 +79,8 @@ class getInUsedAssets extends Component {
     );
     // let paginatorRight = <Button icon="pi pi-cloud-upload" />;
     return (
+      <React.Fragment>
+        <Growl ref={(el) => (this.growl = el)} />
       <div style={{ textAlign: "center" }}>
         {!assets && (
           <ProgressSpinner
@@ -93,6 +100,12 @@ class getInUsedAssets extends Component {
                 rows={10}
                 rowsPerPageOptions={[5, 10, 20]}
               >
+              <Column header="Image" body={(rowData , column)=>{
+                    return <img 
+                       style={{height: "50px" , width:"50px" , borderRadius:"15ch", textAlign:"center"}}  
+                       src={"http://localhost:4000/public/uploads/"+rowData.assetImage} 
+                      alt=""/>
+                  }} />
                 <Column field="title" header="Asset Title" filter={true} />
                 <Column field="brand" header="Asset Brand" filter={true} />
                 <Column
@@ -138,6 +151,7 @@ class getInUsedAssets extends Component {
           </React.Fragment>
         )}
       </div>
+     </React.Fragment>
     );
   }
 }

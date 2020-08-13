@@ -158,11 +158,6 @@ class UserRequests extends Component {
 
                   <Column field="status" filter={true} header="Status" />
                   <Column
-                    field="category"
-                    filter={true}
-                    header="Asset's Category"
-                  />
-                  <Column
                     field="assetTitle"
                     filter={true}
                     header="Requested Asset"

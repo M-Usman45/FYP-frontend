@@ -16,8 +16,6 @@ export class SendRequest extends Component {
     this.state = {
       data: {},
       assets: [],
-      category:"",
-      categories:[],
       asset: "",
       error: "",
       issueDate: null,
@@ -32,7 +30,6 @@ export class SendRequest extends Component {
     AssetTitle: Joi.string().required().label("Asset Title"),
     issueDate: Joi.date().required().label("Issue Date"),
     returnDate: Joi.date().required().label("Return Date"),
-    category: Joi.string().required().label("Category"),
     description: Joi.string().max(200).required().label("Description"),
   };
   validateProperty = ({ name, value }) => {
@@ -69,7 +66,6 @@ export class SendRequest extends Component {
     data["issueDate"] = issueDate;
     data["returnDate"] = returnDate;
     data["AssetTitle"] = asset.title;
-    data["category"] = category.name;
     console.log("on Submit button", data);
     const errors = this.validate();
     this.setState({ error: errors || {} });
@@ -88,7 +84,6 @@ export class SendRequest extends Component {
         data.issueDate,
         data.returnDate,
         data.description,
-        data.category
       )
       .then((result) => {
         this.growl.show({
@@ -166,40 +161,7 @@ export class SendRequest extends Component {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="p-grid">
-              <div className="p-col-12 p-md-2">
-                <label htmlFor="title">Asset Category</label>
-              </div>
-            </div>            
-            <div className="p-grid">
-              <div className="p-col-12 p-md-4" style={{float:"left"}}>
-                <Dropdown
-                  optionLabel="name"
-                  value={this.state.category}
-                  placeholder="Select Category of Asset"
-                  options={this.state.categories}
-                  onChange={(event) => {
-                    const { error } = this.state;
-                    const obj = {
-                      name: "category",
-                      value: event.value.name,
-                    };
-                    this.setState({ category: event.value});
-                    // console.log("Asset", this.state.asset);
-                    const errorMessage = this.validateProperty(obj);
-                    if (errorMessage) error["category"] = errorMessage;
-                    else delete error["category"];
-                    this.setState({ error });
-                  }}
-                />
-                {this.state.error["category"] && (
-                  <span style={{ color: "red" }}>
-                    {this.state.error["category"]}
-                  </span>
-                )}
-              </div>  
-            </div>            
+            </div>           
             <div className="p-grid">
               <div className="p-col-12 p-md-2">
                 <label htmlFor="assetTitle">Asset Title</label>

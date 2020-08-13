@@ -7,8 +7,7 @@ export async function sendRequest(
   assetTitle,
   issueDate,
   returnDate,
-  description,
-  category
+  description
 ) {
   return await http.post(apiEndpoint + "/user/requests/send", {
     title: title,
@@ -16,7 +15,6 @@ export async function sendRequest(
     issueDate: issueDate,
     returnDate: returnDate,
     description: description,
-    category:category
   });
 }
 
